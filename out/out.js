@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", async function() {
         credentials: +querystring.get('send_credentials') ? 'include' : 'same-origin',
         mode: 'no-cors',
       });
-			if(response.status != 200 && response.status != 0) {
-				status_holder.textContent = "Error when fetching: " + response.status + " " + response.statusText;
-			} else {
+			//if(response.status != 200 && response.status != 0) {
+				//status_holder.textContent = "Error when fetching: " + response.status + " " + response.statusText;
+			//} else {
 				await run_demo(response, status_holder);
-			}
+			//}
 		} catch(e) {
 			status_holder.textContent = `${e}`;
 		}
