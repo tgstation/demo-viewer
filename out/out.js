@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", async function() {
 		document.body.appendChild(status_holder);
 		status_holder.textContent = "Fetching demo file...";
 		try {
-			let response = await fetch(url, {credentials: +querystring.get('send_credentials') ? 'include' : 'same-origin'});
+			let response = await fetch(url, {
+        credentials: +querystring.get('send_credentials') ? 'include' : 'same-origin',
+        mode: 'no-cors',
+      });
 			if(response.status != 200) {
 				status_holder.textContent = "Error when fetching: " + response.status + " " + response.statusText;
 			} else {
